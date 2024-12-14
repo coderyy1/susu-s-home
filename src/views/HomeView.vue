@@ -113,7 +113,6 @@
     padding: 12px;
     font-size: 25px;
     color: #fff;
-    z-index: 100;
     transition: all ease-in-out 1s;
     z-index: 100;
   }
