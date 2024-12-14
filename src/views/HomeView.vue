@@ -75,11 +75,10 @@
 <style scoped>
   .content {
     position: relative;
-    padding: 32px 24px;
-    margin-top: 48px;
+    padding-top: 80px;
+    overflow: hidden;
   }
   .title {
-    /* line-height: 106%; */
     position: relative;
     font-size: 66px;
     font-weight: 600;
@@ -87,11 +86,6 @@
     color: var(--main-color-p);
     text-shadow: 1px 1px 4px #fff;
     z-index: 100;
-    /* background-image: url("../assets/img/trans-flag.png");
-    background-size: contain;
-    background-clip: text;
-    color: transparent;
-    -webkit-text-stroke: 2px aqua; */
   }
   .cat {
     position: absolute;
@@ -107,7 +101,7 @@
       transform: translateX(0);
     }
     100% {
-      transform: translateX(900px);
+      transform: translateX(400%);
     }
   }
   .cat img {
@@ -131,8 +125,9 @@
   .sanyue {
     position: absolute;
     right: 12px;
-    bottom: -48px;
-    width: 320px;
+    /* bottom: -24px; */
+    bottom: 12px;
+    width: 300px;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 1px 1px 1px 2px #efefef;
@@ -142,5 +137,19 @@
     width: 100%;
     height: 100%;
     vertical-align: middle;
+  }
+
+  
+
+  @media screen and (width > 850px) and (width <= 1000px) {
+    .sanyue {
+      width: 160px;
+    }
+  }
+
+  @media screen and (width <= 850px) {
+    .sanyue {
+      display: none;
+    }
   }
 </style>

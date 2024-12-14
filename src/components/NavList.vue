@@ -11,9 +11,9 @@ import { RouterLink } from 'vue-router'
       <div class="list">
         <!-- <RouterLink class="items" to="/">欢迎</RouterLink> -->
         <RouterLink class="items" to="/about">苏苏</RouterLink>
-        <RouterLink class="items" to="/">游戏</RouterLink>
-        <RouterLink class="items" to="/">摄影</RouterLink>
-        <RouterLink class="items" to="/">社交</RouterLink>
+        <RouterLink class="items" to="/games">游戏</RouterLink>
+        <RouterLink class="items" to="/photos">摄影</RouterLink>
+        <RouterLink class="items" to="/fans">社交</RouterLink>
       </div>
     </div>
   </div>
@@ -23,7 +23,6 @@ import { RouterLink } from 'vue-router'
   .wrapper {
     width: 100%;
     height: 100%;
-    background-color: var(--main-color-p);
   }
   .content {
     padding-left: 25%;
@@ -34,6 +33,7 @@ import { RouterLink } from 'vue-router'
     flex-direction: column;
   }
   .logo {
+    flex-shrink: 0;
     width: 96px;
     height: 96px;
     box-shadow: 0 0 1px 2px var(--main-color-b);
@@ -61,11 +61,12 @@ import { RouterLink } from 'vue-router'
 
   .items{
     /* margin: -4px 0; */
-    font-size: 32px;
+    font-size: 36px;
     transition: all 0.223s ease-out;
+    /* color: #fff; */
   }
   .items:hover{
     color: var(--main-color-b);
-    font-size: 36px;
+    font-size: 40px;
   }
 </style>

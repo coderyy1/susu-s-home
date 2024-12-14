@@ -2,10 +2,16 @@
 
 #app {
   position: relative;
-  width: 100vw;
-  height: 100vh;
+  padding-top: 240px;
+  padding-bottom: 120px;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
-  overflow: hidden;
+  /* overflow: hidden; */
   /* background-color: #63C5F3; */
+  background-image: url(../assets/img/bg-sanyue.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: top;
 }
