@@ -2,16 +2,29 @@
 
 #app {
   position: relative;
-  /* padding-top: 180px; */
-  /* padding-bottom: 120px; */
   min-height: 100vh;
   display: flex;
   justify-content: center;
-  /* overflow: hidden; */
-  /* background-color: #63C5F3; */
+}
+
+#app::before {
+  content: '   ';
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
   background-image: url(../assets/img/bg-sanyue.png);
   background-size: cover;
+  -webkit-background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-position: center;
+  -webkit-background-attachment: fixed;
+  background-position: center top;
+  background-color: var(--main-color-p);
+}
+
+body::-webkit-scrollbar {
+  display: none;
 }

@@ -72,7 +72,7 @@ const isPure = ref(true);
 
   /* small-width-devic */
   /* no right tips module */
-  @media screen and (width <= 1200px) {
+  @media screen and (max-width: 1200px) {
     .navWrapper {
       display: none;
     }
@@ -84,7 +84,7 @@ const isPure = ref(true);
     }
   }
 
-  @media screen and (width <= 760px) {
+  @media screen and (max-width: 760px) {
     .mobileNav {
       display: block;
     }
