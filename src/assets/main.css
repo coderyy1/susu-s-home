@@ -25,6 +25,13 @@
   background-color: var(--main-color-p);
 }
 
+@media screen and (max-width: 760px) {
+  #app::before {
+    /* background-size: auto 100vh; */
+    background-image: url(../assets/img/bg-mobile.jpg);
+  }
+}
+
 body::-webkit-scrollbar {
   display: none;
 }
