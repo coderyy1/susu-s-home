@@ -46,6 +46,7 @@
         <div>喜欢玩无人机，喜欢在空中飞的那种感觉。</div>
         <div>平时也会玩游戏，很多都有玩过，但是现在在国外，所以玩的比较少啦。</div>
         <div>MMO高度爱好者~</div>
+        <div>流放之路2ing~</div>
       </div>
     </div>
     <!-- <div class="divider" /> -->
