@@ -7,7 +7,7 @@
   let years = now.diff(beginTime, 'year');
   let month = now.diff(beginTime, 'month') % 12;
   let days = now.diff(beginTime, 'day');
-  let pureDays = now.date() + 1;
+  let pureDays = now.date() + 2;
 </script>
 
 <template>

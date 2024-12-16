@@ -16,6 +16,12 @@ const isPure = ref(true);
     <MobileNavList />
   </div>
   <div class="mainView">
+    <div class="ll">
+      <img src="./assets/img/gif/ll.gif" />
+    </div>
+    <div class="gip">
+      <img src="./assets/img/gif/giphy.gif" />
+    </div>
     <RouterView />
   </div>
   <!-- <div class="tips">
@@ -27,6 +33,7 @@ const isPure = ref(true);
   .navWrapper {
     position: relative;
     box-sizing: content-box;
+    z-index: 999;
   }
   .navList {
     position: fixed;
@@ -54,6 +61,7 @@ const isPure = ref(true);
     z-index: 999;
   }
   .mainView {
+    position: relative;
     width: 70%;
     height: 100%;
     padding: 32px 24px;
@@ -63,7 +71,37 @@ const isPure = ref(true);
     background-color: rgba(0, 0, 0, 0.7);
     box-sizing: border-box;
     border-radius: 8px;
+    /* backdrop-filter: blur(10px); */
     color: #fff;
+    z-index: 100;
+  }
+  .ll {
+    position: absolute;
+    top: 0;
+    left: -9%;
+    display: inline-block;
+    width: 220px;
+    z-index: 100;
+    user-select: none;
+  }
+  .ll img {
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+  }
+  .gip {
+    position: absolute;
+    top: -24px;
+    right: -24px;
+    display: inline-block;
+    width: 140px;
+    z-index: 100;
+    user-select: none;
+  }
+  .gip img {
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
   }
   .tips {
     width: 12%;
@@ -84,15 +122,33 @@ const isPure = ref(true);
     }
   }
 
-  @media screen and (max-width: 760px) {
+  @media screen and (max-width: 1040px) {
     .mobileNav {
       display: block;
+      height: 120px;
     }
     .mainView {
       width: 100%;
       min-height: 100vh;
       margin-top: 0;
-      margin-bottom: 64px;
+      margin-bottom: 0;
+    }
+    .gip {
+      display: none;
+    }
+  }
+
+  @media screen and (max-width: 960px) {
+    .mobileNav {
+      display: block;
+      height: 64px;
+    }
+    .mainView {
+      width: 100%;
+      min-height: 100vh;
+      margin-top: 0;
+      margin-bottom: 0;
+      padding-bottom: 72px;
     }
   }
 </style>

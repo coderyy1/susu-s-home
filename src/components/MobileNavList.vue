@@ -36,4 +36,22 @@ const route = useRoute();
     color: var(--main-color-b);
     font-size: 20px;
   }
+
+  @media screen and (max-width: 1040px) {
+    .items {
+      font-size: 32px;
+    }
+    .active {
+      font-size: 36px;
+    }
+  }
+
+  @media screen and (max-width: 960px) {
+    .items {
+      font-size: 18px;
+    }
+    .active {
+      font-size: 20px;
+    }
+  }
 </style>

@@ -25,6 +25,14 @@
   background-color: var(--main-color-p);
 }
 
+.divider {
+  margin: 24px 0;
+  height: 0;
+  width: 70%;
+  border-bottom: 1px solid #fff;
+  align-self: center;
+}
+
 @media screen and (max-width: 760px) {
   #app::before {
     /* background-size: auto 100vh; */

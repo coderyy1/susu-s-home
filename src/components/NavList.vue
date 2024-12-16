@@ -1,5 +1,6 @@
 <script setup>
-import { RouterLink } from 'vue-router'
+  import { RouterLink, useRoute } from 'vue-router'
+  const route = useRoute();
 </script>
 
 <template>
@@ -10,10 +11,10 @@ import { RouterLink } from 'vue-router'
       </RouterLink>
       <div class="list">
         <!-- <RouterLink class="items" to="/">欢迎</RouterLink> -->
-        <RouterLink class="items" to="/about">苏苏</RouterLink>
-        <RouterLink class="items" to="/games">游戏</RouterLink>
-        <RouterLink class="items" to="/photos">摄影</RouterLink>
-        <RouterLink class="items" to="/fans">社交</RouterLink>
+        <RouterLink class="items" to="/about" :class="{ active: route.name === 'about' }">苏苏</RouterLink>
+        <RouterLink class="items" to="/games" :class="{ active: route.name === 'games' }">游戏</RouterLink>
+        <RouterLink class="items" to="/photos" :class="{ active: route.name === 'photos' }">摄影</RouterLink>
+        <RouterLink class="items" to="/fans" :class="{ active: route.name === 'fans' }">社交</RouterLink>
       </div>
     </div>
   </div>
@@ -21,14 +22,10 @@ import { RouterLink } from 'vue-router'
 
 <style scoped>
   .wrapper {
-    width: 100%;
-    height: 100%;
   }
   .content {
     padding-left: 25%;
     padding-top: 30%;
-    width: 100%;
-    height: 100%;
     display: flex;
     flex-direction: column;
   }
@@ -61,11 +58,17 @@ import { RouterLink } from 'vue-router'
 
   .items{
     /* margin: -4px 0; */
+    display: inline-block;
+    width: 120px;
     font-size: 36px;
     transition: all 0.223s ease-out;
     /* color: #fff; */
   }
   .items:hover{
+    color: var(--main-color-b);
+    font-size: 40px;
+  }
+  .active {
     color: var(--main-color-b);
     font-size: 40px;
   }
