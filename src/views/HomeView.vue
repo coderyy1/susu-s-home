@@ -1,11 +1,14 @@
 <script setup>
-  import { onMounted, onUnmounted, ref } from 'vue'
+  import { onMounted, onUnmounted, ref } from 'vue';
+  import { goTopInit } from '@/hooks/utils';
 
   const line = ref(0);
+  const imgNo = ref(0);
 
   let timer = null;
 
   onMounted(() => {
+    goTopInit();
     // time Interval
     const getTimer = () => {
       return setTimeout(() => {
@@ -67,7 +70,12 @@
       拥有相同的爱好，一起交流
     </div>
     <div class="sanyue">
-      <img src="../assets/img/home/sanyue.jpg" />
+      <div class="swiper">
+        <img src="../assets/img/home/sanyue3.jpg" />
+        <img src="../assets/img/home/sanyue2.jpg" />
+        <img src="../assets/img/home/sanyue1.jpg" />
+        <img src="../assets/img/home/sanyue4.jpg" />
+      </div>
     </div>
   </main>
 </template>
@@ -76,6 +84,7 @@
   .content {
     position: relative;
     padding-top: 80px;
+    padding-bottom: 80px;
     overflow: hidden;
   }
   .title {
@@ -127,28 +136,63 @@
     /* bottom: -24px; */
     bottom: 12px;
     width: 300px;
+    display: flex;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 1px 1px 1px 2px #efefef;
     z-index: 0;
   }
+
+  /* stay: 10%, swap: 7% */
+  @keyframes swiper {
+    0% {transform: translateX(0);}
+    10% {transform: translateX(0);}
+    17% {transform: translateX(-300px);}
+    27% {transform: translateX(-300px);}
+    34% {transform: translateX(-600px);}
+    44% {transform: translateX(-600px);}
+    51% {transform: translateX(-900px);}
+    60% {transform: translateX(-900px);}
+    67% {transform: translateX(-600px);}
+    77% {transform: translateX(-600px);}
+    84% {transform: translateX(-300px);}
+    94% {transform: translateX(-300px);}
+    100% {transform: translateX(0);}
+
+    /* 100% {
+      transform: translateX(-1200px);
+    } */
+  }
+  .swiper {
+    width: 300px;
+    display: flex;
+    /* transform: translateX(-300px); */
+    animation: swiper 16s ease-in-out infinite;
+  }
   .sanyue img {
     width: 100%;
-    height: 100%;
+    /* height: 100%; */
     vertical-align: middle;
   }
 
   
 
-  @media screen and (width > 850px) and (width <= 1000px) {
+  @media screen and (max-width: 1000px) {
     .sanyue {
-      width: 160px;
+      /* width: 160px; */
+      display: none;
+    }
+    .content {
+      padding-bottom: 0px;
     }
   }
 
-  @media screen and (width <= 850px) {
+  @media screen and (max-width: 850px) {
     .sanyue {
       display: none;
+    }
+    .content {
+      padding-bottom: 0px;
     }
   }
 </style>

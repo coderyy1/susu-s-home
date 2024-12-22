@@ -1,4 +1,10 @@
 <script setup>
+import { onMounted } from 'vue';
+import { goTopInit } from '@/hooks/utils';
+
+  onMounted(() => {
+    goTopInit();
+  });
   const MEDIA_LIST = [
     {
       name: 'QQ',
@@ -35,6 +41,13 @@
       isLink: true,
       url: 'https://github.com/coderyy1',
     },
+    {
+      name: 'E-mail',
+      icon: '/src/assets/img/fans/email.png',
+      value: 'XiGuaCoCo@outlook.com',
+      isLink: false,
+      url: '',
+    },
   ];
 </script>
 
@@ -43,7 +56,7 @@
     <div class="title">
       这里是苏苏的社交媒体：
     </div>
-    <div class="tips">苏苏会不定期看各个媒体账号以及进行内容更新，如果有急事可以尝试发E-mail，这个是苏苏可以最直观看到的媒体渠道哦</div>
+    <div class="tips">苏苏会不定期看各个媒体账号以及进行内容更新，如果有急事可以尝试发E-mail，这个是苏苏可以最直观看到的渠道哦，添加QQ请备注从主页来的~</div>
     <div class="mediaBox">
       <div class="items" v-for="item in MEDIA_LIST">
         <div class="icon">

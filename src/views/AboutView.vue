@@ -1,5 +1,11 @@
 <script setup>
+  import { onMounted } from 'vue';
   import Timer from '@/components/Timer.vue';
+  import { goTopInit } from '@/hooks/utils';
+
+  onMounted(() => {
+    goTopInit();
+  });
 
   const MTF_WIKI_URL = 'https://mtf.wiki/zh-cn/docs/useful-info/colloquialism/';
 </script>
@@ -16,7 +22,7 @@
         <a :href="MTF_WIKI_URL" target="_blank" class="midLine">小药娘🍥</a>
         哦，
       </div>
-      <div>
+      <div class="timer">
         <Timer />
       </div>
     </div>
@@ -47,6 +53,7 @@
         <div>平时也会玩游戏，很多都有玩过，但是现在在国外，所以玩的比较少啦。</div>
         <div>MMO高度爱好者~</div>
         <div>流放之路2ing~</div>
+        <div>有时间会玩玩诛仙世界啦</div>
       </div>
     </div>
     <!-- <div class="divider" /> -->
@@ -54,7 +61,7 @@
       <div>🍧 喜欢的食物：</div>
       <div class="textBox">
         <div>各种甜品，但是又怕长胖。</div>
-        <div>喜欢比较辣的菜，最喜欢吃的菜是油豆腐炒肉和芹菜炒肉。但是现在也很喜欢吃清淡一点的(其实主要就是指一些广东菜)，因为一些比较神奇的原因。</div>
+        <div>喜欢比较辣的菜，最喜欢吃的菜是油豆腐炒肉和芹菜炒肉。但是现在也很喜欢吃清淡一点的(其实主要就是指一些广东菜)，因为一些比较难以启齿的原因。</div>
         <div>尤其钟爱各种面类&粉类：常德米粉！豌杂面、小面以及热干面！</div>
         <div>喜欢喝咖啡(美式&不加糖)，奶茶也不错(因为在长沙所以喜欢茶颜和另一个奶茶品牌)。</div>
         <div>喜欢喝汽水，尤其是可乐，一定要是罐装加普通可乐，不太喜欢无糖可乐。</div>
@@ -82,7 +89,7 @@
   </div>
 </template>
 
-<style>
+<style scoped>
   .about {
     position: relative;
     font-size: 25px;
@@ -105,6 +112,9 @@
   .transpart {
     padding-left: 24px;
     padding-top: 16px;
+  }
+  .timer {
+    margin: 24px 0;
   }
   .sanyue {
     font-size: 42px;
