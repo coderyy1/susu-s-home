@@ -89,6 +89,9 @@
   .pic {
     width: 640px;
     margin-right: 24px;
+    border: 1px solid #fff;
+    border-radius: 8px;
+    overflow: hidden;
   }
   .pic img {
     width: 100%;
@@ -97,6 +100,8 @@
   }
   .desc {
     font-size: 28px;
+    word-wrap: break-word;
+    word-break: break-all;
   }
 
   @media screen and (max-width: 850px) {

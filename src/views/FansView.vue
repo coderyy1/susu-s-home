@@ -1,54 +1,11 @@
 <script setup>
 import { onMounted } from 'vue';
 import { goTopInit } from '@/hooks/utils';
+import { MEDIA_LIST } from '../constant';
 
   onMounted(() => {
     goTopInit();
   });
-  const MEDIA_LIST = [
-    {
-      name: 'QQ',
-      icon: '/src/assets/img/fans/QQ.png',
-      value: '1229379984',
-      isLink: false,
-      url: '',
-    },
-    {
-      name: 'Bilibili',
-      icon: '/src/assets/img/fans/bili.png',
-      value: '西瓜可可Cokra',
-      isLink: true,
-      url: 'https://space.bilibili.com/50999235?spm_id_from=333.1007.0.0',
-    },
-    {
-      name: '抖音',
-      icon: '/src/assets/img/fans/tiktok.png',
-      value: 'Yukii',
-      isLink: false,
-      url: '',
-    },
-    {
-      name: 'YouTuBe',
-      icon: '/src/assets/img/fans/youtube.png',
-      value: 'SuperCater',
-      isLink: true,
-      url: 'https://www.youtube.com/@supercater-pf6ef',
-    },
-    {
-      name: 'Github',
-      icon: '/src/assets/img/fans/github.png',
-      value: 'coderyy1',
-      isLink: true,
-      url: 'https://github.com/coderyy1',
-    },
-    {
-      name: 'E-mail',
-      icon: '/src/assets/img/fans/email.png',
-      value: 'XiGuaCoCo@outlook.com',
-      isLink: false,
-      url: '',
-    },
-  ];
 </script>
 
 <template>
@@ -58,7 +15,7 @@ import { goTopInit } from '@/hooks/utils';
     </div>
     <div class="tips">苏苏会不定期看各个媒体账号以及进行内容更新，如果有急事可以尝试发E-mail，这个是苏苏可以最直观看到的渠道哦，添加QQ请备注从主页来的~</div>
     <div class="mediaBox">
-      <div class="items" v-for="item in MEDIA_LIST">
+      <div class="items" v-for="item in MEDIA_LIST" :key="item.name">
         <div class="icon">
           <img :src="item.icon" />
         </div>
@@ -115,5 +72,18 @@ import { goTopInit } from '@/hooks/utils';
     margin-left: 4px;
     font-size: 44px;
     color: #fff;
+    word-wrap: break-word;
+    word-break: break-all;
+  }
+
+  @media screen and (max-width: 850px) {
+    .text{
+      font-size: 24px;
+    }
+    .icon {
+      width: 36px;
+      height: 36px;
+      flex-shrink: 0;
+    }
   }
 </style>

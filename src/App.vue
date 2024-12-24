@@ -1,10 +1,36 @@
 <script setup>
 import { RouterView } from 'vue-router'
-import { ref } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 import NavList from './components/NavList.vue'
 import MobileNavList from './components/MobileNavList.vue';
+import GoToTop from './components/GoToTop.vue';
+
+const onScrollFn = () => {
+  console.log(window.scrollY);
+  if (window.scrollY >= 600) {
+    if (showToTop.value) {
+      return;
+    }
+    showToTop.value = true;
+  } else {
+    if (!showToTop.value) {
+      return;
+    }
+    showToTop.value = false;
+  }
+}
 
 const isPure = ref(true);
+const showToTop = ref(false);
+
+onMounted(() => {
+  document.addEventListener('scroll', onScrollFn)
+});
+
+onUnmounted(() => {
+  document.removeEventListener('scroll', onScrollFn);
+});
+
 </script>
 
 <template>
@@ -24,6 +50,7 @@ const isPure = ref(true);
     </div>
     <RouterView />
   </div>
+  <GoToTop v-if="showToTop"/>
   <!-- <div class="tips">
     this is tips
   </div> -->
