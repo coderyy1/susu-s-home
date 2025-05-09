@@ -1,5 +1,6 @@
 <script setup>
   import { onMounted, ref, computed } from 'vue';
+  import { useRoute, useRouter } from 'vue-router';
   import { goTopInit, getPhotos } from '@/hooks/utils';
   import { PHOTO_LIST } from '../constant';
 
@@ -11,13 +12,20 @@
 
   const PAGE_SIZE = 3;
 
-  const curPage = ref(1);
+  const route = useRoute();
+  const router = useRouter();
+  console.log(route?.query?.page);
+  
+  
+
+  const curPage = ref(Number(route?.query?.page) || 1);
 
   const nowPhotos = computed(() => (getPhotos(curPage.value, PAGE_SIZE, PHOTO_LIST)[0]));
   const totalPage = computed(() => (getPhotos(curPage.value, PAGE_SIZE, PHOTO_LIST)[1]));
 
   const pageChange = (page) => {
     curPage.value = page;
+    router.replace(`/photo?page=${page}`);
     goTopInit();
   }
 

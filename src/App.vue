@@ -6,7 +6,6 @@ import MobileNavList from './components/MobileNavList.vue';
 import GoToTop from './components/GoToTop.vue';
 
 const onScrollFn = () => {
-  console.log(window.scrollY);
   if (window.scrollY >= 600) {
     if (showToTop.value) {
       return;

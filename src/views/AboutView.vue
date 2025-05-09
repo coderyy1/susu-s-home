@@ -57,6 +57,15 @@
       </div>
     </div>
     <!-- <div class="divider" /> -->
+    <div class="books">
+      <div>一些小说：</div>
+      <div class="textBox">
+        <div>《剑来》———— 特别喜欢阿良和裴钱：唯有饮者留其名</div>
+        <div>《大道朝天》———— 赵腊月：我心通明，无惧万物</div>
+        <div>《天官赐福》———— 风师：快乐洒脱才是人生</div>
+      </div>
+    </div>
+    <!-- <div class="divider" /> -->
     <div class="eat">
       <div>🍧 喜欢的食物：</div>
       <div class="textBox">

@@ -20,9 +20,9 @@ const router = createRouter({
       component: () => import('../views/GameView.vue'),
     },
     {
-      path: '/photos',
-      name: 'photos',
-      component: () => import('../views/PhotosView.vue'),
+      path: '/photo',
+      name: 'photo',
+      component: () => import('../views/PhotoView.vue'),
     },
     {
       path: '/fans',
