@@ -36,6 +36,17 @@ export const PHOTO_LIST = [
   },
 ];
 
+export const PLACE_LIST = [
+  {
+    value: 'bodensee',
+    text: '德国，博登湖',
+  },
+  {
+    value: 'dolomiti',
+    text: '意大利，多洛米蒂',
+  },
+];
+
 export const MEDIA_LIST = [
   {
     name: 'QQ',

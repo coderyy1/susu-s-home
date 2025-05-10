@@ -29,28 +29,13 @@
     <div class="title">苏苏的游戏室~</div>
     <div class="gameBox">
       <template v-if="tab === TAB_MAP[0]?.value">
-        <div class="subTitle">流放之路2</div>
-        <div class="subTitle">锐眼毒气箭，走纯电，目前三体~</div>
+        <div class="subTitle">sub title</div>
+        <div class="subTitle">sub title</div>
         <div class="items">
           <div class="pic">
             <img src="../assets/img/game/fire-helmet.png" />
           </div>
-          <div class="desc">点燃头，自动引爆毒气箭嘻嘻(开心)</div>
-        </div>
-        <div class="items">
-          <div class="pic">
-            <img src="../assets/img/game/light-gloves.png" />
-          </div>
-          <div class="desc">触电手，感电 + 触电，安全满满伤害高高~</div>
-        </div>
-        <div class="items">
-          <div class="pic">
-            <img src="../assets/img/game/ice-ring.png" />
-          </div>
-          <div class="desc">击碎戒指，对群怪plus，销毁尸体防止自爆~</div>
-        </div>
-        <div class="items">
-          <div class="desc" style="font-size: 34px; color: var(--height-light-color-p);">机体基本开发完毕，开心开刷，后续换武器 + 装备提升伤害和生存ing~</div>
+          <div class="desc">desc</div>
         </div>
       </template>
     </div>

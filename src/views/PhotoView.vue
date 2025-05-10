@@ -2,7 +2,7 @@
   import { onMounted, ref, computed } from 'vue';
   import { useRoute, useRouter } from 'vue-router';
   import { goTopInit, getPhotos } from '@/hooks/utils';
-  import { PHOTO_LIST } from '../constant';
+  import { PHOTO_LIST, PLACE_LIST } from '../constant';
 
   import PageNav from '@/components/PageNav.vue';
 
@@ -19,6 +19,7 @@
   
 
   const curPage = ref(Number(route?.query?.page) || 1);
+  const placeValue = ref(PLACE_LIST[0]?.value);
 
   const nowPhotos = computed(() => (getPhotos(curPage.value, PAGE_SIZE, PHOTO_LIST)[0]));
   const totalPage = computed(() => (getPhotos(curPage.value, PAGE_SIZE, PHOTO_LIST)[1]));
@@ -35,6 +36,15 @@
 <template>
   <div class="photos">
     <div class="title">苏苏的照片墙~</div>
+    <div class="placeChoser">
+      <a-select
+        v-model:value="placeValue"
+        class="aSelect"
+        size="large"
+      >
+        <a-select-option v-for="place in PLACE_LIST" :key="place.value" :value="place.value" style="fontSize: 24px">{{ place.text }}</a-select-option>
+      </a-select>
+    </div>
     <div class="photosBox">
       <div class="items" v-for="photo in nowPhotos" :key="photo.id">
         <div class="pic">
@@ -58,6 +68,17 @@
   .title {
     margin-bottom: 32px;
     font-size: 36px;
+  }
+  .placeChoser {
+    margin-bottom: 24px;
+    text-align: center;
+  }
+  .aSelect {
+    min-width: 256px;
+    /* padding: 4px 8px; */
+  }
+  .aSelect >>> .ant-select-selection-item {
+    font-size: 24px;
   }
   .photosBox {
     display: flex;

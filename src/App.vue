@@ -33,23 +33,31 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="navWrapper">
-    <div class="navBlock"></div>
-    <NavList class="navList"/>
-  </div>
-  <div class="mobileNav">
-    <MobileNavList />
-  </div>
-  <div class="mainView">
-    <div class="ll">
-      <img src="./assets/img/gif/ll.gif" />
+  <a-config-provider
+    :theme="{
+      token: {
+        colorPrimary: `#FF6999`,
+      },
+    }"
+  >
+    <div class="navWrapper">
+      <div class="navBlock"></div>
+      <NavList class="navList"/>
     </div>
-    <div class="gip">
-      <img src="./assets/img/gif/giphy.gif" />
+    <div class="mobileNav">
+      <MobileNavList />
     </div>
-    <RouterView />
-  </div>
-  <GoToTop v-if="showToTop"/>
+    <div class="mainView">
+      <div class="ll">
+        <img src="./assets/img/gif/ll.gif" />
+      </div>
+      <div class="gip">
+        <img src="./assets/img/gif/giphy.gif" />
+      </div>
+      <RouterView />
+    </div>
+    <GoToTop v-if="showToTop"/>
+  </a-config-provider>
   <!-- <div class="tips">
     this is tips
   </div> -->
