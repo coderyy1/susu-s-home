@@ -1,40 +1,62 @@
-export const PHOTO_LIST = [
-  {
-    id: 1,
-    url: '/src/assets/img/photos/sea.JPG',
-    desc: '德国博登湖的照片',
-  },
-  {
-    id: 2,
-    url: '/src/assets/img/photos/chair.JPG',
-    desc: '一对孤单的椅子，好像坐在孤寂的天涯',
-  },
-  {
-    id: 3,
-    url: '/src/assets/img/photos/seaandtree.JPG',
-    desc: '蔚蓝的海，以及满地落叶',
-  },
-  {
-    id: 4,
-    url: '/src/assets/img/photos/snow.JPG',
-    desc: '家的雪景',
-  },
-  {
-    id: 5,
-    url: '/src/assets/img/photos/snownight.JPG',
-    desc: '安静的雪',
-  },
-  {
-    id: 6,
-    url: '/src/assets/img/photos/waytosea.JPG',
-    desc: '通往海底世界的桥',
-  },
-  {
-    id: 7,
-    url: '/src/assets/img/photos/susu.JPG',
-    desc: '独坐看海的苏苏~',
-  },
-];
+export const PHOTO_LIST = {
+  bodensee: [
+    {
+      id: 1,
+      url: '/src/assets/img/photos/sea.JPG',
+      desc: '德国博登湖的照片',
+    },
+    {
+      id: 2,
+      url: '/src/assets/img/photos/chair.JPG',
+      desc: '一对孤单的椅子，好像坐在孤寂的天涯',
+    },
+    {
+      id: 3,
+      url: '/src/assets/img/photos/seaandtree.JPG',
+      desc: '蔚蓝的海，以及满地落叶',
+    },
+    {
+      id: 4,
+      url: '/src/assets/img/photos/snow.JPG',
+      desc: '家的雪景',
+    },
+    {
+      id: 5,
+      url: '/src/assets/img/photos/snownight.JPG',
+      desc: '安静的雪',
+    },
+    {
+      id: 6,
+      url: '/src/assets/img/photos/waytosea.JPG',
+      desc: '通往海底世界的桥',
+    },
+    {
+      id: 7,
+      url: '/src/assets/img/photos/susu.JPG',
+      desc: '独坐看海的苏苏~',
+    },
+  ],
+  dolomiti: [
+
+  ],
+};
+
+export const GAME_PIC_LIST = {
+  poe2: [
+    {
+      id:1,
+      url: '/src/assets/img/game/fire-helmet.png',
+      desc: 'poe2, in game'
+    },
+    {
+      id:2,
+      url: '/src/assets/img/game/ice-ring.png',
+      desc: 'poe2, in game, also ring'
+    },
+  ],
+  poe: [],
+  ZXSJ: [],
+};
 
 export const PLACE_LIST = [
   {
@@ -44,6 +66,21 @@ export const PLACE_LIST = [
   {
     value: 'dolomiti',
     text: '意大利，多洛米蒂',
+  },
+];
+
+export const GAME_LIST = [
+  {
+    value: 'poe2',
+    text: '流放之路2',
+  },
+  {
+    value: 'poe',
+    text: '流放之路',
+  },
+  {
+    value: 'ZXSJ',
+    text: '诛仙世界',
   },
 ];
 

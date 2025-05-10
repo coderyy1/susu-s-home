@@ -14,19 +14,25 @@
 
   const route = useRoute();
   const router = useRouter();
-  console.log(route?.query?.page);
-  
-  
 
   const curPage = ref(Number(route?.query?.page) || 1);
-  const placeValue = ref(PLACE_LIST[0]?.value);
+  const placeValue = ref(route?.query?.place || PLACE_LIST[0]?.value);
 
-  const nowPhotos = computed(() => (getPhotos(curPage.value, PAGE_SIZE, PHOTO_LIST)[0]));
-  const totalPage = computed(() => (getPhotos(curPage.value, PAGE_SIZE, PHOTO_LIST)[1]));
+  const photoList = computed(() => (PHOTO_LIST[placeValue.value]));
+  const nowPhotos = computed(() => (getPhotos(curPage.value, PAGE_SIZE, photoList.value)[0]));
+  const totalPage = computed(() => (getPhotos(curPage.value, PAGE_SIZE, photoList.value)[1]));
+  
 
   const pageChange = (page) => {
     curPage.value = page;
-    router.replace(`/photo?page=${page}`);
+    router.replace(`/photo?page=${page}&place=${placeValue.value}`);
+    goTopInit();
+  }
+
+  const placeChange = (place) => {
+    placeValue.value = place;
+    curPage.value = 1;
+    router.replace(`/photo?page=1&place=${place}`);
     goTopInit();
   }
 
@@ -41,8 +47,10 @@
         v-model:value="placeValue"
         class="aSelect"
         size="large"
+        @change="placeChange"
       >
-        <a-select-option v-for="place in PLACE_LIST" :key="place.value" :value="place.value" style="fontSize: 24px">{{ place.text }}</a-select-option>
+        <a-select-option v-for="place in PLACE_LIST" :key="place.value" style="fontSize: 24px">{{ place.text }}</a-select-option>
+        <a-select-option style="fontSize: 24px" disabled>正在旅行中~</a-select-option>
       </a-select>
     </div>
     <div class="photosBox">
@@ -52,6 +60,7 @@
         </div>
         <div class="desc" v-if="photo?.desc">{{ photo.desc }}</div>
       </div>
+      <div v-if="nowPhotos?.length === 0" :style="{fontSize: '48px'}">no photo now~</div>
     </div>
     <PageNav :cur-page="curPage" :total-page="totalPage" @change-page="pageChange"/>
   </div>
@@ -77,7 +86,7 @@
     min-width: 256px;
     /* padding: 4px 8px; */
   }
-  .aSelect >>> .ant-select-selection-item {
+  .aSelect :deep(.ant-select-selection-item) {
     font-size: 24px;
   }
   .photosBox {

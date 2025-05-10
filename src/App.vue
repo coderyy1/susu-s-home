@@ -4,6 +4,7 @@ import { ref, onMounted, onUnmounted } from 'vue'
 import NavList from './components/NavList.vue'
 import MobileNavList from './components/MobileNavList.vue';
 import GoToTop from './components/GoToTop.vue';
+import { theme } from 'ant-design-vue';
 
 const onScrollFn = () => {
   if (window.scrollY >= 600) {
@@ -36,8 +37,12 @@ onUnmounted(() => {
   <a-config-provider
     :theme="{
       token: {
-        colorPrimary: `#FF6999`,
+        colorPrimary: '#FF6999',
+        fontSize: 18,
+        colorPrimaryBg: '#F6D5D9',
+        colorPrimaryBgHover: '#F6D5D9',
       },
+      // algorithm: theme.darkAlgorithm //dark mode
     }"
   >
     <div class="navWrapper">

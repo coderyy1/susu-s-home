@@ -10,8 +10,8 @@ const route = useRoute();
   <div class="comp">
     <RouterLink class="items" :class="{ active: route.name === 'home' }" to="/">简介</RouterLink>
     <RouterLink class="items" :class="{ active: route.name === 'about' }" to="/about">苏苏</RouterLink>
-    <RouterLink class="items" :class="{ active: route.name === 'games' }" to="/games">游戏</RouterLink>
-    <RouterLink class="items" :class="{ active: route.name === 'photo' }" to="/photo?page=1">摄影</RouterLink>
+    <RouterLink class="items" :class="{ active: route.name === 'games' }" to="/games?page=1&game=poe2">游戏</RouterLink>
+    <RouterLink class="items" :class="{ active: route.name === 'photo' }" to="/photo?page=1&place=bodensee">摄影</RouterLink>
     <RouterLink class="items" :class="{ active: route.name === 'fans' }" to="/fans">社交</RouterLink>
   </div>
 </template>

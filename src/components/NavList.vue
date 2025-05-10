@@ -12,8 +12,8 @@
       <div class="list">
         <!-- <RouterLink class="items" to="/">欢迎</RouterLink> -->
         <RouterLink class="items" to="/about" :class="{ active: route.name === 'about' }">苏苏</RouterLink>
-        <RouterLink class="items" to="/games" :class="{ active: route.name === 'games' }">游戏</RouterLink>
-        <RouterLink class="items" to="/photo?page=1" :class="{ active: route.name === 'photo' }">摄影</RouterLink>
+        <RouterLink class="items" to="/games?page=1&game=poe2" :class="{ active: route.name === 'games' }">游戏</RouterLink>
+        <RouterLink class="items" to="/photo?page=1&place=bodensee" :class="{ active: route.name === 'photo' }">摄影</RouterLink>
         <RouterLink class="items" to="/fans" :class="{ active: route.name === 'fans' }">社交</RouterLink>
       </div>
     </div>

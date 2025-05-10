@@ -7,5 +7,5 @@ export const goTopInit = () => {
 // return now photos to slice page
 // reutrn [list, totalPage]
 export const getPhotos = (page, pageSize, list) => {
-  return [list.slice((page - 1) * pageSize, page * pageSize), Math.ceil(list.length / pageSize)];
+  return [list?.slice((page - 1) * pageSize, page * pageSize), Math.ceil(list?.length / pageSize)];
 }

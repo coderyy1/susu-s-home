@@ -35,9 +35,9 @@
 
 <template>
   <div class="comp">
-    <div class="prePage btn" @click="toPrePage" v-if="curPage !== 1">上一页</div>
-    <div class="btn" :class="{ active: curPage === item }" v-for="item in btnList" :key="item" @click="toNumPage(item)">{{ item }}</div>
-    <div class="nextPage btn" @click="toNextPage" v-if="curPage < totalPage">下一页</div>
+    <a-button size="large" type="primary" @click="toPrePage" v-if="curPage !== 1">上一页</a-button>
+    <a-button size="large" :disabled="curPage === item" type="primary" v-for="item in btnList" :key="item" @click="toNumPage(item)">{{ item }}</a-button>
+    <a-button size="large" type="primary" @click="toNextPage" v-if="curPage < totalPage">下一页</a-button>
   </div>
 </template>
 
@@ -48,6 +48,16 @@
     column-gap: 8px;
     row-gap: 8px;
     flex-wrap: wrap;
+  }
+  .comp:deep(.ant-btn-primary:disabled){
+    color: #fff;
+  }
+  .comp:deep(.ant-btn) {
+    padding: 4px 8px;
+    min-width: 44px;
+    width: auto;
+    height: auto;
+    font-size: 24px;
   }
   .btn {
     display: flex;
