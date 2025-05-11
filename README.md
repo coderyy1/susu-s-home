@@ -1,6 +1,13 @@
 # main
 
-This template should help get you started developing with Vue 3 in Vite.
+This is a website page proj.
+use vue + vite + ant-design-vue.
+
+use some media query to build the mobile port.
+
+# !!!important
+
+dont use this (background-attachment: fixed;) attribute, on ios or safari will scale the background img, is too bad
 
 ## Recommended IDE Setup
 

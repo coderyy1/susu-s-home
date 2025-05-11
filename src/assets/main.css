@@ -7,7 +7,25 @@
   justify-content: center;
 }
 
-#app::before {
+.backgroundImg {
+  position: fixed !important;
+  left: 0;
+  right: 0;
+  z-index: -2;
+  height: 100%;
+  width: 100%;
+  background-image: url(../assets/img/bg-sanyue.png);
+  background-size: cover;
+  -webkit-background-size: cover;
+  background-repeat: no-repeat;
+  /* dont use this attr, on ios or safari will scale the background img */
+  /* background-attachment: fixed;
+  -webkit-background-attachment: fixed; */
+  background-position: center center;
+  background-color: var(--main-color-p);
+}
+
+/* #app::before {
   content: '   ';
   position: fixed;
   left: 0;
@@ -23,7 +41,7 @@
   -webkit-background-attachment: fixed;
   background-position: center top;
   background-color: var(--main-color-p);
-}
+} */
 
 .divider {
   margin: 24px 0;
@@ -34,10 +52,7 @@
 }
 
 @media screen and (max-width: 760px) {
-  #app::before {
-    /* background-size: auto 100vh; */
-    background-image: url(../assets/img/bg-mobile.jpg);
-  }
+  
 }
 
 body::-webkit-scrollbar {
