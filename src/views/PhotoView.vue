@@ -104,6 +104,7 @@
   }
   .pic {
     width: 640px;
+    min-height: 77px;
     margin-right: 24px;
     border: 1px solid #fff;
     border-radius: 8px;

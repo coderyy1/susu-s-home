@@ -1,11 +1,6 @@
-const SEA_IMG =  new URL('@/assets/img/photos/sea.JPG', import.meta.url).href;
-const CHAIR_IMG =  new URL('@/assets/img/photos/chair.JPG', import.meta.url).href;
-const TREE_IMG =  new URL('@/assets/img/photos/seaandtree.JPG', import.meta.url).href;
-const SNOW_IMG =  new URL('@/assets/img/photos/snow.JPG', import.meta.url).href;
-const SNIGHT_IMG =  new URL('@/assets/img/photos/snownight.JPG', import.meta.url).href;
-const WAYS_IMG =  new URL('@/assets/img/photos/waytosea.JPG', import.meta.url).href;
-const SS_IMG =  new URL('@/assets/img/photos/susu.JPG', import.meta.url).href;
-
+import BODENSEE_PHOTO from './photo/bodensee.js';
+import DOLOMITI_PHOTO from './photo/dolomiti.js';
+import FUNES_PHOTO from './photo/funes.js';
 
 const FIRE_PIC =  new URL('@/assets/img/game/fire-helmet.png', import.meta.url).href;
 const IRING_PIC =  new URL('@/assets/img/game/ice-ring.png', import.meta.url).href;
@@ -19,46 +14,9 @@ const GIT_ICON =  new URL('@/assets/img/fans/github.png', import.meta.url).href;
 const MAIL_ICON =  new URL('@/assets/img/fans/email.png', import.meta.url).href;
 
 export const PHOTO_LIST = {
-  bodensee: [
-    {
-      id: 1,
-      url: SEA_IMG,
-      desc: '德国博登湖的照片',
-    },
-    {
-      id: 2,
-      url: CHAIR_IMG,
-      desc: '一对孤单的椅子，好像坐在孤寂的天涯',
-    },
-    {
-      id: 3,
-      url: TREE_IMG,
-      desc: '蔚蓝的海，以及满地落叶',
-    },
-    {
-      id: 4,
-      url: SNOW_IMG,
-      desc: '家的雪景',
-    },
-    {
-      id: 5,
-      url: SNIGHT_IMG,
-      desc: '安静的雪',
-    },
-    {
-      id: 6,
-      url: WAYS_IMG,
-      desc: '通往海底世界的桥',
-    },
-    {
-      id: 7,
-      url: SS_IMG,
-      desc: '独坐看海的苏苏~',
-    },
-  ],
-  dolomiti: [
-
-  ],
+  bodensee: BODENSEE_PHOTO,
+  dolomiti: DOLOMITI_PHOTO,
+  funes: FUNES_PHOTO,
 };
 
 export const GAME_PIC_LIST = {
@@ -86,6 +44,10 @@ export const PLACE_LIST = [
   {
     value: 'dolomiti',
     text: '意大利，多洛米蒂',
+  },
+  {
+    value: 'funes',
+    text: '意大利，富内斯山谷',
   },
 ];
 
