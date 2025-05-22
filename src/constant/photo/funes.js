@@ -14,19 +14,9 @@ export default [
       desc: '山顶的教堂',
     },
     {
-      id: 'FUNESO2',
-      url: SSZ_IMG,
-      desc: '小羊晒太阳',
-    },
-    {
       id: 'FUNESO3',
       url: SZS_IMG,
-      desc: '山顶的教堂',
-    },
-    {
-      id: 'FUNESO4',
-      url: ZSQQ_IMG,
-      desc: '羊羊们',
+      desc: '',
     },
     {
       id: 'FUNESO5',
@@ -34,9 +24,19 @@ export default [
       desc: '',
     },
     {
+      id: 'FUNESO2',
+      url: SSZ_IMG,
+      desc: '小羊晒太阳',
+    },
+    {
+      id: 'FUNESO4',
+      url: ZSQQ_IMG,
+      desc: '羊羊们',
+    },
+    {
       id: 'FUNESO6',
       url: ZXCSA_IMG,
-      desc: '羊羊们',
+      desc: '',
     },
     {
       id: 'FUNESO7',

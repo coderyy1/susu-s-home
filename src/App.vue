@@ -4,7 +4,10 @@ import { ref, onMounted, onUnmounted } from 'vue'
 import NavList from './components/NavList.vue'
 import MobileNavList from './components/MobileNavList.vue';
 import GoToTop from './components/GoToTop.vue';
+const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
 import { theme } from 'ant-design-vue';
+
+console.log('test env: ', apiBaseUrl);
 
 const onScrollFn = () => {
   if (window.scrollY >= 600) {

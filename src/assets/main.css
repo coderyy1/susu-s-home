@@ -14,7 +14,8 @@
   z-index: -2;
   height: 100%;
   width: 100%;
-  background-image: url(../assets/img/bg-sanyue.png);
+  /* background-image: url(../assets/img/bg-sanyue.png); */
+  background-image: url(../assets/img/bg/IMG_5466.JPG);
   background-size: cover;
   -webkit-background-size: cover;
   background-repeat: no-repeat;
