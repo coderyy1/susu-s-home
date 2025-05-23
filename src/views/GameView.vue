@@ -1,38 +1,55 @@
 <script setup>
-  import { onMounted, ref, computed } from 'vue';
-  import { useRoute, useRouter } from 'vue-router';
-  import { goTopInit, getPhotos } from '@/hooks/utils';
-  import { GAME_PIC_LIST, GAME_LIST } from '../constant';
+  import { onMounted, ref } from 'vue';
+  import { goTopInit } from '@/hooks/utils';
+  import { GAME_LIST } from '../constant';
+  const imgBaseUrl = import.meta.env.VITE_IMG_BASE_URL;
+  import { usePagination } from '@/hooks/usePagination';
+
+  import api from '@/hooks/axios';
 
   import PageNav from '@/components/PageNav.vue';
 
+  const PAGE_SIZE = 4;
 
+  const gamePicList = ref([]);
+  const totalPages = ref(0);
+
+  const fetchGameList = async (page, game) => {
+    try {
+      const data = await api.post('/game/getGameList', { 
+        page,
+        pageSize: PAGE_SIZE,
+        type: game,
+       });
+      gamePicList.value = data?.data?.gameList.map(game => ({
+        ...game,
+        url: imgBaseUrl + game?.url,
+      }));
+      totalPages.value = data?.data?.totalPages;
+    } catch (err) {
+      console.log('error: ', err);
+      
+    }
+  }
+
+  const { state, updateQuery } = usePagination({
+    defaultQuery: { page: 1, game: GAME_LIST[0].value },
+    fetchFn: fetchGameList,
+    typeName: 'game',
+  });
+
+  
   onMounted(() => {
     goTopInit();
   });
 
-  const PAGE_SIZE = 4;
-
-  const route = useRoute();
-  const router = useRouter();
-
-  const curPage = ref(Number(route?.query?.page) || 1);
-  const gameValue = ref(route?.query?.game || GAME_LIST[0]?.value);
-
-  const gamePicList = computed(() => (GAME_PIC_LIST[gameValue.value]));
-  const nowGamePic = computed(() => (getPhotos(curPage.value, PAGE_SIZE, gamePicList.value)[0]));
-  const totalPage = computed(() => (getPhotos(curPage.value, PAGE_SIZE, gamePicList.value)[1]));
-
   const pageChange = (page) => {
-    curPage.value = page;
-    router.replace(`/games?page=${page}&game=${gameValue.value}`);
+    updateQuery('page', page);
     goTopInit();
   }
 
   const gameChange = (game) => {
-    gameValue.value = game;
-    curPage.value = 1;
-    router.replace(`/games?page=1&game=${game}`);
+    updateQuery('game', game);
     goTopInit();
   }
 
@@ -43,7 +60,7 @@
     <div class="title">苏苏的游戏室~</div>
     <div class="gameChoser">
       <a-select
-        v-model:value="gameValue"
+        v-model:value="state.game"
         class="aSelect"
         size="large"
         @change="gameChange"
@@ -52,15 +69,15 @@
       </a-select>
     </div>
     <div class="gameBox">
-      <div class="items" v-for="game in nowGamePic" :key="game.id">
+      <div class="items" v-for="game in gamePicList" :key="game.id">
         <div class="pic">
           <img :src="game.url" />
         </div>
         <div class="desc" v-if="game?.desc">{{ game.desc }}</div>
       </div>
-      <div v-if="nowGamePic?.length === 0" :style="{fontSize: '48px'}">no game pic now~</div>
+      <div v-if="gamePicList?.length === 0" :style="{fontSize: '48px'}">no game pic now~</div>
     </div>
-    <PageNav :cur-page="curPage" :total-page="totalPage" @change-page="pageChange"/>
+    <PageNav :cur-page="state.page" :total-page="totalPages" @change-page="pageChange"/>
   </div>
 </template>
 

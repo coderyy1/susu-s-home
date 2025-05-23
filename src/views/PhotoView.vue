@@ -1,38 +1,54 @@
 <script setup>
-  import { onMounted, ref, computed } from 'vue';
-  import { useRoute, useRouter } from 'vue-router';
-  import { goTopInit, getPhotos } from '@/hooks/utils';
-  import { PHOTO_LIST, PLACE_LIST } from '../constant';
+  import { onMounted, ref } from 'vue';
+  import { goTopInit } from '@/hooks/utils';
+  import { PLACE_LIST } from '../constant';
+  const imgBaseUrl = import.meta.env.VITE_IMG_BASE_URL;
+  import { usePagination } from '@/hooks/usePagination';
+
+  import api from '@/hooks/axios';
 
   import PageNav from '@/components/PageNav.vue';
+
+  const PAGE_SIZE = 3;
+
+  const photoList = ref([]);
+  const totalPages = ref(0);
+
+  const fetchPhotoList = async (page, place) => {
+    try {
+      const data = await api.post('/photo/getPhotoList', { 
+        page,
+        pageSize: PAGE_SIZE,
+        type: place,
+       });
+      photoList.value = data?.data?.photoList.map(photo => ({
+        ...photo,
+        url: imgBaseUrl + photo?.url,
+      }));
+      totalPages.value = data?.data?.totalPages;
+    } catch (err) {
+      console.log('error: ', err);
+      
+    }
+  }
+
+  const { state, updateQuery } = usePagination({
+    defaultQuery: { page: 1, place: PLACE_LIST[0].value },
+    fetchFn: fetchPhotoList,
+    typeName: 'place',
+  });
 
   onMounted(() => {
     goTopInit();
   });
 
-  const PAGE_SIZE = 3;
-
-  const route = useRoute();
-  const router = useRouter();
-
-  const curPage = ref(Number(route?.query?.page) || 1);
-  const placeValue = ref(route?.query?.place || PLACE_LIST[0]?.value);
-
-  const photoList = computed(() => (PHOTO_LIST[placeValue.value]));
-  const nowPhotos = computed(() => (getPhotos(curPage.value, PAGE_SIZE, photoList.value)[0]));
-  const totalPage = computed(() => (getPhotos(curPage.value, PAGE_SIZE, photoList.value)[1]));
-  
-
   const pageChange = (page) => {
-    curPage.value = page;
-    router.replace(`/photo?page=${page}&place=${placeValue.value}`);
+    updateQuery('page', page);
     goTopInit();
   }
 
   const placeChange = (place) => {
-    placeValue.value = place;
-    curPage.value = 1;
-    router.replace(`/photo?page=1&place=${place}`);
+    updateQuery('place', place);
     goTopInit();
   }
 
@@ -44,7 +60,7 @@
     <div class="title">苏苏的照片墙~</div>
     <div class="placeChoser">
       <a-select
-        v-model:value="placeValue"
+        v-model:value="state.place"
         class="aSelect"
         size="large"
         @change="placeChange"
@@ -54,15 +70,15 @@
       </a-select>
     </div>
     <div class="photosBox">
-      <div class="items" v-for="photo in nowPhotos" :key="photo.id">
+      <div class="items" v-for="photo in photoList" :key="photo.id">
         <div class="pic">
           <img :src="photo.url" />
         </div>
         <div class="desc" v-if="photo?.desc">{{ photo.desc }}</div>
       </div>
-      <div v-if="nowPhotos?.length === 0" :style="{fontSize: '48px'}">no photo now~</div>
+      <div v-if="photoList?.length === 0" :style="{fontSize: '48px'}">no photo now~</div>
     </div>
-    <PageNav :cur-page="curPage" :total-page="totalPage" @change-page="pageChange"/>
+    <PageNav :cur-page="state.page" :total-page="totalPages" @change-page="pageChange"/>
   </div>
 </template>
 
@@ -95,6 +111,7 @@
     flex-wrap: wrap;
     margin-bottom: 32px;
     padding: 8px 16px;
+    min-height: 100vh;
     border: 1px solid var(--main-color-p);
     border-radius: 8px;
     row-gap: 38px;
