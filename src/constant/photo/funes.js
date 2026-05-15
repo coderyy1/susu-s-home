@@ -1,46 +1,40 @@
-const QQC_IMG =  new URL('@/assets/img/photos/funes/funes_qqcs.JPG', import.meta.url).href;
-const SSZ_IMG =  new URL('@/assets/img/photos/funes/funes_sszc.JPG', import.meta.url).href;
-const SZS_IMG =  new URL('@/assets/img/photos/funes/funes_szs.JPG', import.meta.url).href;
-const ZSQQ_IMG =  new URL('@/assets/img/photos/funes/funes_zsqqs.JPG', import.meta.url).href;
-const ZSXXZ_IMG =  new URL('@/assets/img/photos/funes/funes_zsxxzs.JPG', import.meta.url).href;
-const ZXCSA_IMG =  new URL('@/assets/img/photos/funes/funes_zxcsa.JPG', import.meta.url).href;
-const ZZS_IMG =  new URL('@/assets/img/photos/funes/funes_zzs.JPG', import.meta.url).href;
 
+const R2Url = 'https://img.susumtf.com/photo/funes';
 
 export default [
     {
       id: 'FUNESO1',
-      url: QQC_IMG,
+      url: `${R2Url}/funes_qqcs.JPG`,
       desc: '山顶的教堂',
     },
     {
       id: 'FUNESO3',
-      url: SZS_IMG,
+      url: `${R2Url}/funes_sszc.JPG`,
       desc: '',
     },
     {
       id: 'FUNESO5',
-      url: ZSXXZ_IMG,
+      url: `${R2Url}/funes_szs.JPG`,
       desc: '',
     },
     {
       id: 'FUNESO2',
-      url: SSZ_IMG,
+      url: `${R2Url}/funes_zsqqs.JPG`,
       desc: '小羊晒太阳',
     },
     {
       id: 'FUNESO4',
-      url: ZSQQ_IMG,
+      url: `${R2Url}/funes_zsxxzs.JPG`,
       desc: '羊羊们',
     },
     {
       id: 'FUNESO6',
-      url: ZXCSA_IMG,
+      url: `${R2Url}/funes_zxcsa.JPG`,
       desc: '',
     },
     {
       id: 'FUNESO7',
-      url: ZZS_IMG,
+      url: `${R2Url}/funes_zzs.JPG`,
       desc: '富内斯山谷小镇~',
     },
   ];

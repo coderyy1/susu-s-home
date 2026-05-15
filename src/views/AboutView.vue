@@ -26,12 +26,12 @@
         <Timer />
       </div>
     </div>
-    <div class="sanyue">
+    <!-- <div class="sanyue">
       <span style="color: var(--main-color-p);">小三月</span>
       <span>单推人！</span>
       <span style="color: var(--main-color-p);">三月七</span>
       <span>天下第一可爱~</span>
-    </div>
+    </div> -->
     <div class="divider" />
     <div>
       <span>苏苏是程序员哦(前端)：</span>
@@ -52,19 +52,18 @@
         <div>喜欢玩无人机，喜欢在空中飞的那种感觉。</div>
         <div>平时也会玩游戏，很多都有玩过，但是现在在国外，所以玩的比较少啦。</div>
         <div>MMO高度爱好者~</div>
-        <div>流放之路2ing~</div>
-        <div>有时间会玩玩诛仙世界啦</div>
+        <div>流放之路1、2ing~</div>
       </div>
     </div>
     <!-- <div class="divider" /> -->
-    <div class="books">
+    <!-- <div class="books">
       <div>一些小说：</div>
       <div class="textBox">
         <div>《剑来》———— 特别喜欢阿良和裴钱：唯有饮者留其名</div>
         <div>《大道朝天》———— 赵腊月：我心通明，无惧万物</div>
         <div>《天官赐福》———— 风师：快乐洒脱才是人生</div>
       </div>
-    </div>
+    </div> -->
     <!-- <div class="divider" /> -->
     <div class="eat">
       <div>🍧 喜欢的食物：</div>

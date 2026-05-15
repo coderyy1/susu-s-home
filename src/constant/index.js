@@ -2,10 +2,6 @@ import BODENSEE_PHOTO from './photo/bodensee.js';
 import DOLOMITI_PHOTO from './photo/dolomiti.js';
 import FUNES_PHOTO from './photo/funes.js';
 
-const FIRE_PIC =  new URL('@/assets/img/game/fire-helmet.png', import.meta.url).href;
-const IRING_PIC =  new URL('@/assets/img/game/ice-ring.png', import.meta.url).href;
-
-
 const QQ_ICON =  new URL('@/assets/img/fans/QQ.png', import.meta.url).href;
 const BBLL_ICON =  new URL('@/assets/img/fans/bili.png', import.meta.url).href;
 const TK_ICON =  new URL('@/assets/img/fans/tiktok.png', import.meta.url).href;
@@ -21,19 +17,18 @@ export const PHOTO_LIST = {
 
 export const GAME_PIC_LIST = {
   poe2: [
-    {
-      id:1,
-      url: FIRE_PIC,
-      desc: 'poe2, in game'
-    },
-    {
-      id:2,
-      url: IRING_PIC,
-      desc: 'poe2, in game, also ring'
-    },
+    // {
+    //   id:1,
+    //   url: FIRE_PIC,
+    //   desc: 'poe2, in game'
+    // },
+    // {
+    //   id:2,
+    //   url: IRING_PIC,
+    //   desc: 'poe2, in game, also ring'
+    // },
   ],
   poe: [],
-  ZXSJ: [],
 };
 
 export const PLACE_LIST = [
@@ -53,16 +48,12 @@ export const PLACE_LIST = [
 
 export const GAME_LIST = [
   {
-    value: 'poe2',
-    text: '流放之路2',
-  },
-  {
     value: 'poe',
     text: '流放之路',
   },
   {
-    value: 'ZXSJ',
-    text: '诛仙世界',
+    value: 'poe2',
+    text: '流放之路2',
   },
 ];
 

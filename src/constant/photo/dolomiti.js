@@ -1,58 +1,50 @@
-const ARRE_IMG =  new URL('@/assets/img/photos/dolomiti/dolo_arre.JPG', import.meta.url).href;
-const CCSZ_IMG =  new URL('@/assets/img/photos/dolomiti/dolo_ccsz.JPG', import.meta.url).href;
-const HAUS_IMG =  new URL('@/assets/img/photos/dolomiti/dolo_haus.JPG', import.meta.url).href;
-const MOU_IMG =  new URL('@/assets/img/photos/dolomiti/dolo_mount.JPG', import.meta.url).href;
-const RECC_IMG =  new URL('@/assets/img/photos/dolomiti/dolo_recc.JPG', import.meta.url).href;
-const STO_IMG =  new URL('@/assets/img/photos/dolomiti/dolo_stone.JPG', import.meta.url).href;
-const TOP_IMG =  new URL('@/assets/img/photos/dolomiti/dolo_topic.JPG', import.meta.url).href;
-const TTC_IMG =  new URL('@/assets/img/photos/dolomiti/dolo_ttc.JPG', import.meta.url).href;
-const WWAZ_IMG =  new URL('@/assets/img/photos/dolomiti/dolo_wwaz.JPG', import.meta.url).href;
 
+const R2Url = 'https://img.susumtf.com/photo/dolomiti';
 
 export default [
     {
       id: 'DOLO1',
-      url: ARRE_IMG,
+      url: `${R2Url}/dolo_arre.JPG`,
       desc: '探索者们的石碑，迷失在探索中的人们',
     },
     {
       id: 'DOLO2',
-      url: CCSZ_IMG,
+      url: `${R2Url}/dolo_ccsz.JPG`,
       desc: '悬崖',
     },
     {
       id: 'DOLO3',
-      url: HAUS_IMG,
+      url: `${R2Url}/dolo_haus.JPG`,
       desc: 'giau山顶的旅店',
     },
     {
       id: 'DOLO4',
-      url: MOU_IMG,
+      url: `${R2Url}/dolo_mount.JPG`,
       desc: '路标',
     },
     {
       id: 'DOLO5',
-      url: RECC_IMG,
+      url: `${R2Url}/dolo_recc.JPG`,
       desc: '前往giau山口路上的小镇',
     },
     {
       id: 'DOLO6',
-      url: STO_IMG,
+      url: `${R2Url}/dolo_stone.JPG`,
       desc: '山顶的碑',
     },
     {
       id: 'DOLO7',
-      url: TOP_IMG,
+      url: `${R2Url}/dolo_topic.JPG`,
       desc: 'dolomiti国家公园山顶的小镇',
     },
     {
       id: 'DOLO8',
-      url: TTC_IMG,
+      url: `${R2Url}/dolo_ttc.JPG`,
       desc: '前往giau山口路上的小镇',
     },
     {
       id: 'DOLO9',
-      url: WWAZ_IMG,
+      url: `${R2Url}/dolo_wwaz.JPG`,
       desc: 'giau山口的摩旅人',
     },
   ];

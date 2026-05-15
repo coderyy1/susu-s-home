@@ -69,14 +69,14 @@
     <div class="desc"  :style="line >= 6 ? {  } : { opacity: 0 }">
       拥有相同的爱好，一起交流
     </div>
-    <div class="sanyue">
+    <!-- <div class="swiperComp">
       <div class="swiper">
-        <img src="../assets/img/home/sanyue3.jpg" />
-        <img src="../assets/img/home/sanyue2.jpg" />
-        <img src="../assets/img/home/sanyue1.jpg" />
-        <img src="../assets/img/home/sanyue4.jpg" />
+        <img src="../assets/img/home/xx.jpg" />
+        <img src="../assets/img/home/xx.jpg" />
+        <img src="../assets/img/home/xx.jpg" />
+        <img src="../assets/img/home/xx.jpg" />
       </div>
-    </div>
+    </div> -->
   </main>
 </template>
 
@@ -130,7 +130,7 @@
     font-size: 36px;
     color: var(--main-color-p);
   }
-  .sanyue {
+  .swiperComp {
     position: absolute;
     right: 12px;
     /* bottom: -24px; */
@@ -158,18 +158,14 @@
     84% {transform: translateX(-300px);}
     94% {transform: translateX(-300px);}
     100% {transform: translateX(0);}
-
-    /* 100% {
-      transform: translateX(-1200px);
-    } */
   }
   .swiper {
     width: 300px;
     display: flex;
     /* transform: translateX(-300px); */
-    animation: swiper 16s ease-in-out infinite;
+    /* animation: swiper 16s ease-in-out infinite; */
   }
-  .sanyue img {
+  .swiperComp img {
     width: 100%;
     /* height: 100%; */
     vertical-align: middle;
@@ -178,7 +174,7 @@
   
 
   @media screen and (max-width: 1000px) {
-    .sanyue {
+    .swiperComp {
       /* width: 160px; */
       display: none;
     }
@@ -188,7 +184,7 @@
   }
 
   @media screen and (max-width: 850px) {
-    .sanyue {
+    .swiperComp {
       display: none;
     }
     .content {
