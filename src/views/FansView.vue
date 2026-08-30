@@ -1,7 +1,7 @@
 <script setup>
 import { onMounted } from 'vue';
 import { goTopInit } from '@/hooks/utils';
-import { MEDIA_LIST } from '../constant';
+import { MEDIA_INFO } from '../constant';
 
   onMounted(() => {
     goTopInit();
@@ -15,7 +15,7 @@ import { MEDIA_LIST } from '../constant';
     </div>
     <div class="tips">苏苏会不定期看各个媒体账号以及进行内容更新，如果有急事可以尝试发E-mail，这个是苏苏可以最直观看到的渠道哦，添加QQ请备注从主页来的~</div>
     <div class="mediaBox">
-      <div class="items" v-for="item in MEDIA_LIST" :key="item.name">
+      <div class="items" v-for="item in MEDIA_INFO" :key="item.name">
         <div class="icon">
           <img :src="item.icon" />
         </div>

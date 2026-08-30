@@ -2,7 +2,7 @@
   import { onMounted, ref, computed } from 'vue';
   import { useRoute, useRouter } from 'vue-router';
   import { goTopInit, getPhotos } from '@/hooks/utils';
-  import { GAME_PIC_LIST, GAME_LIST } from '../constant';
+  import { GAME_INFO } from '../constant';
 
   import PageNav from '@/components/PageNav.vue';
 
@@ -13,15 +13,17 @@
 
   const PAGE_SIZE = 4;
 
+  const { gameTYPEList: GAME_TYPE_LIST, gameImgList: GAME_IMG_LIST } = GAME_INFO;
+
   const route = useRoute();
   const router = useRouter();
 
   const curPage = ref(Number(route?.query?.page) || 1);
-  const gameValue = ref(route?.query?.game || GAME_LIST[0]?.value);
+  const gameValue = ref(route?.query?.game || GAME_TYPE_LIST[0]?.value);
 
-  const gamePicList = computed(() => (GAME_PIC_LIST[gameValue.value]));
-  const nowGamePic = computed(() => (getPhotos(curPage.value, PAGE_SIZE, gamePicList.value)[0]));
-  const totalPage = computed(() => (getPhotos(curPage.value, PAGE_SIZE, gamePicList.value)[1]));
+  const gameImgList = computed(() => (GAME_IMG_LIST[gameValue.value]||[]));
+  const nowGamePic = computed(() => (getPhotos(curPage.value, PAGE_SIZE, gameImgList.value)[0]));
+  const totalPage = computed(() => (getPhotos(curPage.value, PAGE_SIZE, gameImgList.value)[1]));
 
   const pageChange = (page) => {
     curPage.value = page;
@@ -48,7 +50,7 @@
         size="large"
         @change="gameChange"
       >
-        <a-select-option v-for="game in GAME_LIST" :key="game.value" style="fontSize: 24px">{{ game.text }}</a-select-option>
+        <a-select-option v-for="game in GAME_TYPE_LIST" :key="game.value" style="fontSize: 24px">{{ game.text }}</a-select-option>
       </a-select>
     </div>
     <div class="gameBox">

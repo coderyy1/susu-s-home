@@ -2,7 +2,7 @@
   import { onMounted, ref, computed } from 'vue';
   import { useRoute, useRouter } from 'vue-router';
   import { goTopInit, getPhotos } from '@/hooks/utils';
-  import { PHOTO_LIST, PLACE_LIST } from '../constant';
+  import { PHOTO_INFO } from '../constant';
 
   import PageNav from '@/components/PageNav.vue';
 
@@ -12,13 +12,15 @@
 
   const PAGE_SIZE = 3;
 
+  const { placeList: PLACE_LIST, photoList: PHOTO_LIST } = PHOTO_INFO;
+
   const route = useRoute();
   const router = useRouter();
 
   const curPage = ref(Number(route?.query?.page) || 1);
   const placeValue = ref(route?.query?.place || PLACE_LIST[0]?.value);
 
-  const photoList = computed(() => (PHOTO_LIST[placeValue.value]));
+  const photoList = computed(() => (PHOTO_LIST[placeValue.value]||[]));
   const nowPhotos = computed(() => (getPhotos(curPage.value, PAGE_SIZE, photoList.value)[0]));
   const totalPage = computed(() => (getPhotos(curPage.value, PAGE_SIZE, photoList.value)[1]));
   

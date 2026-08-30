@@ -4,7 +4,6 @@ const R2Url = 'https://img.susumtf.com/photo/bodensee';
 export default [
     {
       id: '1',
-      // url: 'https://drive.google.com/file/d/1O-vGxrDY4d_C-3UKjD-f62GE359ljdEW/view?usp=drive_link',
       url: `${R2Url}/sea.JPG`,
       desc: '德国博登湖的照片',
     },
